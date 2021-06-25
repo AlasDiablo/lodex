@@ -10,7 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Intell lodex
+    - name: Install lodex
       run: make install
 
     - name: Start containers
