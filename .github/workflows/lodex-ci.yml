@@ -1,0 +1,57 @@
+name: Lodex CI
+on: [push, pull_request]
+
+jobs:
+  test-unit:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Install lodex
+      run: make install
+
+    - name: Start containers and test unit
+      run: make test-unit
+
+    - name: Stop containers
+      if: always()
+      run: docker-compose -f docker-compose.dev.yml down
+
+  test-api-e2e:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Install lodex
+      run: make install
+
+    - name: Start containers and test unit
+      run: make test-api-e2e
+
+    - name: Stop containers
+      if: always()
+      run: docker-compose -f docker-compose.dev.yml down
+  test-e2e:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Install lodex
+      run: make install
+
+    - name: Start containers and test unit
+      run: make test-e2e
+
+    - name: Stop containers
+      if: always()
+      run: docker-compose -f docker-compose.dev.yml down
+
