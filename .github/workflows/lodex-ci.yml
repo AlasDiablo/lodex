@@ -13,7 +13,7 @@ jobs:
     - name: Install lodex
       run: make install
 
-    - name: Start containers and test unit
+    - name: Start Unit Tests
       run: make test-unit
 
   test-api-e2e:
@@ -27,11 +27,11 @@ jobs:
     - name: Install lodex
       run: make install
 
-    - name: Start containers and test unit
+    - name: Start API E2E Tests
       run: make test-api-e2e
 
   test-e2e:
-    timeout-minutes: 10
+    timeout-minutes: 25
     runs-on: ubuntu-latest
 
     steps:
@@ -41,5 +41,5 @@ jobs:
     - name: Install lodex
       run: make install
 
-    - name: Start containers and test unit
+    - name: Start E2E Tests
       run: make test-e2e
