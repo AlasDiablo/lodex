@@ -10,7 +10,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Install lodex
+    - name: Install LODEX
       run: make install
 
     - name: Start Unit Tests
@@ -24,7 +24,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Install lodex
+    - name: Install LODEX
       run: make install
 
     - name: Start API E2E Tests
@@ -38,7 +38,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Install lodex
+    - name: Install LODEX
       run: make install
 
     - name: Start E2E Tests
